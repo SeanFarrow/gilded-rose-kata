@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class GildedRoseTest {
+public class GildedRoseApprovalTests {
 
     @Test
     public void testUpdateQuality() {
