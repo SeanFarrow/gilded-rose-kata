@@ -11,7 +11,11 @@ public class GildedRoseApprovalTests {
     @Test
     public void testUpdateQuality()  throws Exception { 
     String[] availableItemNames = new String[] {
-	"foo"};
+	"foo",
+	"+5 Dexterity Vest",
+	"Aged Brie"
+
+    		};
     Integer[] availableSellInValues = new Integer[] {0};
     Integer[] availableQualityValues = new Integer[] {0};
     CombinationApprovals.verifyAllCombinations(this::doUpdateQuality, availableItemNames, availableSellInValues, availableQualityValues);
