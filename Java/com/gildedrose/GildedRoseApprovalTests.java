@@ -10,11 +10,11 @@ public class GildedRoseApprovalTests {
 
     @Test
     public void testUpdateQuality() {
-        String expectedItemName ="foo";
+        Item expectedItem =new Item("foo", -1, 0);
     	Item[] items = new Item[] { new Item("foo", 0, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        Approvals.verify(expectedItemName);
+        Approvals.verify(expectedItem);
     }
 
 }
