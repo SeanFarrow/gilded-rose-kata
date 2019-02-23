@@ -14,8 +14,8 @@ public class GildedRoseApprovalTests {
 	"foo",
 	"+5 Dexterity Vest",
 	"Aged Brie",
-	"Elixir of the Mongoose"
-    		
+	"Elixir of the Mongoose",
+	"Sulfuras, Hand of Ragnaros"
     };
     Integer[] availableSellInValues = new Integer[] {0};
     Integer[] availableQualityValues = new Integer[] {0};
