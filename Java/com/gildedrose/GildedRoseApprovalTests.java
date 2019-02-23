@@ -1,9 +1,11 @@
 package com.gildedrose;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+import org.approvaltests.Approvals;
+import org.approvaltests.reporters.UseReporter;
+import org.approvaltests.reporters.JunitReporter;
 
+@UseReporter(JunitReporter.class)
 public class GildedRoseApprovalTests {
 
     @Test
@@ -12,7 +14,7 @@ public class GildedRoseApprovalTests {
     	Item[] items = new Item[] { new Item("foo", 0, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals(expectedItemName, app.items[0].name);
+        Approvals.verify(expectedItemName);
     }
 
 }
