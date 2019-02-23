@@ -18,8 +18,8 @@ public class GildedRoseApprovalTests {
 	"Backstage passes to a TAFKAL80ETC concert"
     };
     
-    Integer[] availableSellInValues = new Integer[] {0};
-    Integer[] availableQualityValues = new Integer[] {0};
+    Integer[] availableSellInValues = new Integer[] {0, 12, -1};
+    Integer[] availableQualityValues = new Integer[] {0, 3, 51, 49};
 
     CombinationApprovals.verifyAllCombinations(this::doUpdateQuality, availableItemNames, availableSellInValues, availableQualityValues);
 }
