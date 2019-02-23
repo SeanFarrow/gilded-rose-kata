@@ -14,6 +14,30 @@ class GildedRose {
     }
 
 	private void UpdateValuesForAnIndividualItem(Item updatingItem) {
+		if (updatingItem.name.equals("Aged Brie")) 
+		{//start aged brie.
+		    updateAgedBrie(updatingItem); 
+		}//end aged brie. 
+		else { 
+		foo(updatingItem);
+	}
+	}
+
+	private void updateAgedBrie(Item updatingItem) {
+		if (updatingItem.quality < 50) {
+		    updatingItem.quality = updatingItem.quality + 1;
+		}
+		    		
+		updatingItem.sellIn = updatingItem.sellIn - 1;
+
+if (updatingItem.sellIn < 0) {
+		    if (updatingItem.quality < 50) {
+		        //Update the quality again if the sell-in has passed and the quality isn't greater than 50.
+		    	updatingItem.quality = updatingItem.quality + 1;
+		    }
+		}
+	}
+	private void foo(Item updatingItem) {
 		if (!updatingItem.name.equals("Aged Brie")
 		        && !updatingItem.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
 		    if (updatingItem.quality > 0) {
