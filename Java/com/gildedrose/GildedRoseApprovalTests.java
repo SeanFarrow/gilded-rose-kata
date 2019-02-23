@@ -1,7 +1,7 @@
 package com.gildedrose;
 
 import org.junit.Test;
-import org.approvaltests.Approvals;
+import org.approvaltests.combinations.CombinationApprovals;
 import org.approvaltests.reporters.UseReporter;
 import org.approvaltests.reporters.JunitReporter;
 
@@ -9,12 +9,21 @@ import org.approvaltests.reporters.JunitReporter;
 public class GildedRoseApprovalTests {
 
     @Test
-    public void testUpdateQuality() {
-        Item expectedItem =new Item("foo", -1, 0);
-    	Item[] items = new Item[] { new Item("foo", 0, 0) };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        Approvals.verify(expectedItem);
-    }
+    public void testUpdateQuality()  throws Exception { 
+    String[] availableItemNames = new String[] {
+	"foo"};
+    Integer[] availableSellInValues = new Integer[] {0};
+    Integer[] availableQualityValues = new Integer[] {0};
+    CombinationApprovals.verifyAllCombinations(this::doUpdateQuality, availableItemNames, availableSellInValues, availableQualityValues);
+}
 
+private Item doUpdateQuality(String itemName, int initialSellInValue, int initialQualityValue) {
+    //GIVEN
+Item[] items = new Item[]{new Item(itemName, initialSellInValue, initialQualityValue)};        
+GildedRose app = new GildedRose(items);   
+//When.
+//Update the item.
+app.updateQuality();
+return items[0];
+}
 }
