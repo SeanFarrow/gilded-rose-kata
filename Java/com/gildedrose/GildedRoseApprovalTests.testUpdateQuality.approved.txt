@@ -2,3 +2,4 @@
 [+5 Dexterity Vest, 0, 0] => +5 Dexterity Vest, -1, 0 
 [Aged Brie, 0, 0] => Aged Brie, -1, 2 
 [Elixir of the Mongoose, 0, 0] => Elixir of the Mongoose, -1, 0 
+[Sulfuras, Hand of Ragnaros, 0, 0] => Sulfuras, Hand of Ragnaros, 0, 0 
