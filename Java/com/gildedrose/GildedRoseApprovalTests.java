@@ -11,7 +11,6 @@ public class GildedRoseApprovalTests {
     @Test
     public void testUpdateQuality()  throws Exception { 
     String[] availableItemNames = new String[] {
-	"foo",
 	"+5 Dexterity Vest",
 	"Aged Brie",
 	"Elixir of the Mongoose",
