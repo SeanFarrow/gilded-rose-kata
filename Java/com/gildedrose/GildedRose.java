@@ -18,23 +18,35 @@ class GildedRose {
     }
 
 	private void UpdateValuesForAnIndividualItem(Item updatingItem) {
-		if (updatingItem.name.equals("Aged Brie")) 
-		{//start aged brie.
-		    updateAgedBrie(updatingItem); 
-		}//end aged brie. 
-		else if (updatingItem.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-			//start backstage.
-    updateBackStage(updatingItem); 
-//end backstage.
+		var updateItemStrategyFactory =new UpdateItemStrategyFactoryImpl();
+		var itemUpdater =updateItemStrategyFactory .FindUpdateStrategyForItem(updatingItem);
+		if (itemUpdater  ==null)
+		{ //Use the old code for now.
+			updateTheItemUsingTheOldCode(updatingItem);
 		}
-		else if (updatingItem.name.equals("Sulfuras, Hand of Ragnaros"))
-		{// update Sulfuras, Hand of Ragnaros.
-		//do nothing.
+		else {
+			//Use the newly written item update strategies.
 		}
-			else  { 
-//Update all standard items. 
-			updateStandardItems(updatingItem);
 	}
+
+	private void updateTheItemUsingTheOldCode(Item updatingItem) {
+		if (updatingItem.name.equals("Aged Brie")) 
+{//start aged brie.
+		updateAgedBrie(updatingItem); 
+}//end aged brie. 
+else if (updatingItem.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+		//start backstage.
+   updateBackStage(updatingItem); 
+//end backstage.
+}
+else if (updatingItem.name.equals("Sulfuras, Hand of Ragnaros"))
+{// update Sulfuras, Hand of Ragnaros.
+//do nothing.
+}
+		else  { 
+//Update all standard items. 
+		updateStandardItems(updatingItem);
+}
 	}
 	
 	private void updateAgedBrie(Item updatingItem) {
