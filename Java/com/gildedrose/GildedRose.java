@@ -24,7 +24,7 @@ class GildedRose {
 //end backstage.
 		}
 		else { 
-		foo(updatingItem);
+		codeNeedingRefactoring(updatingItem);
 	}
 	}
 
@@ -67,7 +67,7 @@ if (updatingItem.sellIn < 0) {
 		}
 	}
 	
-	private void foo(Item updatingItem) {
+	private void codeNeedingRefactoring(Item updatingItem) {
 		if (!updatingItem.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
 		    if (updatingItem.quality > 0) {
 		        if (!updatingItem.name.equals("Sulfuras, Hand of Ragnaros")) {
