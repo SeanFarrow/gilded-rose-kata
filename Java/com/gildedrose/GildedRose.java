@@ -76,22 +76,24 @@ class GildedRose {
 	}
 
 											private void updateStandardItems(Item updatingItem) {
-			if (isTheItemsQualityGreaterThanTheMinimumQualityAllowed(updatingItem)) {
-		            decrementItemQualityBy(updatingItem, 1);
+												if (isSellInPassed(updatingItem)) {
+													decrementItemQualityBy(updatingItem, 2);
+												}
+												else
+												{
+													decrementItemQualityBy(updatingItem, 1);
+												}
+												
+												if (isTheItemsQualityLessThanTheMinimumQualityAllowed(updatingItem)) {
+													setTheItemQualityToTheMinimumQualityAllowed(updatingItem);
 		        }
 		    
 		    decrementItemSellInBy(updatingItem, 1);
-
-		if (isSellInPassed(updatingItem)) {
-		            if (isTheItemsQualityGreaterThanTheMinimumQualityAllowed(updatingItem)) {
-		                    decrementItemQualityBy(updatingItem, 1);
-		                }
-		            }
 		        }
 		
 			//Helper functions for the quality.			
-			private boolean isTheItemsQualityLessThanTheMaximumQualityAllowed(Item updatingItem) {
-				return updatingItem.quality < MAXIMUM_QUALITY;
+			private boolean isTheItemsQualityLessThanTheMinimumQualityAllowed(Item updatingItem) {
+				return updatingItem.quality < MINIMUM_QUALITY;
 			}
 			
 			private boolean isTheItemsQualityGreaterThanTheMaximumQualityAllowed(Item updatingItem)
