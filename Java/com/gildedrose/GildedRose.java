@@ -54,27 +54,25 @@ class GildedRose {
 	}
 	
 	private void updateBackStage(Item updatingItem) {
-		if (isTheItemsQualityLessThanTheMaximumQualityAllowed(updatingItem)) {
-		    incrementItemQualityBy(updatingItem, 1);
-
-		        if (isSellInIn10DaysOrLess(updatingItem)) {
-		            if (isTheItemsQualityLessThanTheMaximumQualityAllowed(updatingItem)) {
-		                incrementItemQualityBy(updatingItem, 1);
-		            }
+		if (isSellInPassed(updatingItem)) {
+		    setTheItemQualityToTheMinimumQualityAllowed(updatingItem);
+	    }
+		else if (isSellInIn10DaysOrLess(updatingItem)) {
+		            incrementItemQualityBy(updatingItem, 2);
 		        }
-
-		        if (isSellInIn5DaysOrLess(updatingItem)) {
-		            if (isTheItemsQualityLessThanTheMaximumQualityAllowed(updatingItem)) {
-		                incrementItemQualityBy(updatingItem, 1);
-		            }
+		else if (isSellInIn5DaysOrLess(updatingItem)) {
+		            incrementItemQualityBy(updatingItem, 3);
 		        }
-		    }
-		
+		else {
+			incrementItemQualityBy(updatingItem, 1);
+		}
+			
+		if (isTheItemsQualityGreaterThanTheMaximumQualityAllowed(updatingItem))
+		{
+			setTheItemsQualityToTheMaximumQualityAllowed(updatingItem);
+		}
+
 		decrementItemSellInBy(updatingItem, 1);
-
-if (isSellInPassed(updatingItem)) {
-			    setTheItemQualityToTheMinimumQualityAllowed(updatingItem);
-		    }
 	}
 
 											private void updateStandardItems(Item updatingItem) {
