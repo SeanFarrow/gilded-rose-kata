@@ -27,8 +27,13 @@ class GildedRose {
     updateBackStage(updatingItem); 
 //end backstage.
 		}
-		else { 
-		codeNeedingRefactoring(updatingItem);
+		else if (updatingItem.name.equals("Sulfuras, Hand of Ragnaros"))
+		{// update Sulfuras, Hand of Ragnaros.
+		//do nothing.
+		}
+			else  { 
+//Update all standard items. 
+			updateStandardItems(updatingItem);
 	}
 	}
 
@@ -70,26 +75,20 @@ if (isSellInPassed(updatingItem)) {
 		}
 	}
 	
-			private void codeNeedingRefactoring(Item updatingItem) {
+			private void updateStandardItems(Item updatingItem) {
 			if (isTheItemsQualityGreaterThanTheMinimumQualityAllowed(updatingItem)) {
-		        if (!updatingItem.name.equals("Sulfuras, Hand of Ragnaros")) {
 		            decrementItemQualityBy(updatingItem, 1);
 		        }
-		    }
-			
-		if (!updatingItem.name.equals("Sulfuras, Hand of Ragnaros")) {
+		    
 		    decrementItemSellInBy(updatingItem, 1);
-		}
 
 		if (isSellInPassed(updatingItem)) {
 		            if (isTheItemsQualityGreaterThanTheMinimumQualityAllowed(updatingItem)) {
-		                if (!updatingItem.name.equals("Sulfuras, Hand of Ragnaros")) {
 		                    decrementItemQualityBy(updatingItem, 1);
 		                }
 		            }
 		        }
-		}
-
+		
 			//Helper functions for the quality.			
 			private boolean isTheItemsQualityLessThanTheMaximumQualityAllowed(Item updatingItem) {
 				return updatingItem.quality < MAXIMUM_QUALITY;
