@@ -37,9 +37,9 @@ if (updatingItem.sellIn < 0) {
 		    }
 		}
 	}
+	
 	private void foo(Item updatingItem) {
-		if (!updatingItem.name.equals("Aged Brie")
-		        && !updatingItem.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+		if (!updatingItem.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
 		    if (updatingItem.quality > 0) {
 		        if (!updatingItem.name.equals("Sulfuras, Hand of Ragnaros")) {
 		            updatingItem.quality = updatingItem.quality - 1;
