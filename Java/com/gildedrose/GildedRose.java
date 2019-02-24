@@ -36,7 +36,23 @@ class GildedRose {
 			updateStandardItems(updatingItem);
 	}
 	}
+	
+	private void updateAgedBrie(Item updatingItem) {
+		if (isSellInPassed(updatingItem)) {
+			incrementItemQualityBy(updatingItem, 2); //Increment the quality by 2 if the sellin has passed.
+		}
+		else {
+			incrementItemQualityBy(updatingItem, 1);
+		}
+		
+		decrementItemSellInBy(updatingItem, 1);
 
+		if (isTheItemsQualityGreaterThanTheMaximumQualityAllowed(updatingItem))
+{
+	setTheItemsQualityToTheMaximumQualityAllowed(updatingItem);
+}
+	}
+	
 	private void updateBackStage(Item updatingItem) {
 		if (isTheItemsQualityLessThanTheMaximumQualityAllowed(updatingItem)) {
 		    incrementItemQualityBy(updatingItem, 1);
@@ -61,21 +77,7 @@ if (isSellInPassed(updatingItem)) {
 		    }
 	}
 
-								private void updateAgedBrie(Item updatingItem) {
-		if (isTheItemsQualityLessThanTheMaximumQualityAllowed(updatingItem)) {
-		    incrementItemQualityBy(updatingItem, 1);
-		}
-		    		
-		decrementItemSellInBy(updatingItem, 1);
-
-if (isSellInPassed(updatingItem)) {
-		    if (isTheItemsQualityLessThanTheMaximumQualityAllowed(updatingItem)) {
-		        incrementItemQualityBy(updatingItem, 1);
-		    }
-		}
-	}
-	
-			private void updateStandardItems(Item updatingItem) {
+											private void updateStandardItems(Item updatingItem) {
 			if (isTheItemsQualityGreaterThanTheMinimumQualityAllowed(updatingItem)) {
 		            decrementItemQualityBy(updatingItem, 1);
 		        }
@@ -94,11 +96,16 @@ if (isSellInPassed(updatingItem)) {
 				return updatingItem.quality < MAXIMUM_QUALITY;
 			}
 			
+			private boolean isTheItemsQualityGreaterThanTheMaximumQualityAllowed(Item updatingItem)
+			{
+				return updatingItem.quality > MAXIMUM_QUALITY;
+			}
+
 			private boolean isTheItemsQualityGreaterThanTheMinimumQualityAllowed(Item updatingItem) {
 				return updatingItem.quality > 0;
 			}
-			
-			private void incrementItemQualityBy(Item updatingItem, int delta) {
+
+				private void incrementItemQualityBy(Item updatingItem, int delta) {
 				updatingItem.quality = updatingItem.quality + delta;
 			}
 			
@@ -108,6 +115,10 @@ if (isSellInPassed(updatingItem)) {
 
 			private void setTheItemQualityToTheMinimumQualityAllowed(Item updatingItem) {
 				updatingItem.quality = MINIMUM_QUALITY;
+			}
+			
+			private void setTheItemsQualityToTheMaximumQualityAllowed(Item updatingItem) {
+				updatingItem.quality = MAXIMUM_QUALITY; 
 			}
 
 			//Helper functions for an items sellin.
