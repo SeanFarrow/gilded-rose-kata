@@ -15,7 +15,8 @@ public class GildedRoseApprovalTests {
 	"Aged Brie",
 	"Elixir of the Mongoose",
 	"Sulfuras, Hand of Ragnaros",
-	"Backstage passes to a TAFKAL80ETC concert"
+	"Backstage passes to a TAFKAL80ETC concert",
+	"Conjured Mana Cake"
     };
     
     Integer[] availableSellInValues = new Integer[] {0, 12, -1, 6, 2};
