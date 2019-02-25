@@ -39,12 +39,7 @@ else if (updatingItem.name.equals("Backstage passes to a TAFKAL80ETC concert")) 
 		//start backstage.
    updateBackStage(updatingItem); 
 //end backstage.
-}
-else if (updatingItem.name.equals("Sulfuras, Hand of Ragnaros"))
-{// update Sulfuras, Hand of Ragnaros.
-//do nothing.
-}
-		else  { 
+} else  { 
 //Update all standard items. 
 		updateStandardItems(updatingItem);
 }
