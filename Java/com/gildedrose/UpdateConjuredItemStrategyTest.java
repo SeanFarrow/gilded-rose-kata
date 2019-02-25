@@ -1,7 +1,8 @@
 package com.gildedrose;
 
-import static org.junit.Assert.*;
-
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 import org.junit.Test;
 
 public class UpdateConjuredItemStrategyTest {
@@ -17,7 +18,7 @@ public class UpdateConjuredItemStrategyTest {
 		//When.
 		//Update the item.
 		var updatedItem =updatingItemStrategy.updateItem(itemToUpdate); 
-assertEquals(expectedItemSellIn, updatedItem.sellIn);
+		assertThat(expectedItemSellIn, is(equalTo(updatedItem.sellIn)));
 	}
 	@Test
 	public void AConjuredItemsQualityValueDecreasesBy2WhenTheSellInValueIsPositive() {
@@ -30,7 +31,7 @@ assertEquals(expectedItemSellIn, updatedItem.sellIn);
 		//When.
 		//Update the item.
 		var updatedItem =updatingItemStrategy.updateItem(itemToUpdate); 
-assertEquals(expectedItemQuality, updatedItem.quality);
+		assertThat(expectedItemQuality, is(equalTo(updatedItem.quality)));
 	}
 
 	@Test
@@ -44,8 +45,9 @@ assertEquals(expectedItemQuality, updatedItem.quality);
 		//When.
 		//Update the item.
 		var updatedItem =updatingItemStrategy.updateItem(itemToUpdate); 
-assertEquals(expectedItemQuality, updatedItem.quality);
+		assertThat(expectedItemQuality, is(equalTo(updatedItem.quality)));
 	}
+	
 	@Test
 	public void AConjuredItemsQualityValueCanNeverBeNegative() {
 		String itemName ="Conjured Mana Cake";
@@ -57,6 +59,6 @@ assertEquals(expectedItemQuality, updatedItem.quality);
 		//When.
 		//Update the item.
 		var updatedItem =updatingItemStrategy.updateItem(itemToUpdate); 
-assertEquals(expectedItemQuality, updatedItem.quality);
+		assertThat(expectedItemQuality, is(equalTo(updatedItem.quality)));
 	}
 }
