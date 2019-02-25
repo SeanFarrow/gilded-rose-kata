@@ -26,6 +26,7 @@ class GildedRose {
 		}
 		else {
 			//Use the newly written item update strategies.
+		itemUpdater.updateItem(updatingItem);	
 		}
 	}
 
